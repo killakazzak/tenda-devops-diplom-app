@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мир Пельменей</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Comic Sans MS', cursive;
+        }
+
+        body {
+            background: #fff3e0;
+        }
+
+        /* Шапка */
+        .header {
+            background: #ff7043;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Анимированные пельмешки */
+        .dumpling {
+            position: absolute;
+            width: 50px;
+            animation: float 4s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(15deg); }
+        }
+
+        /* Основной контент */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        /* Карточка с пельменем */
+        .dumpling-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .dumpling-card:hover {
+            transform: translateY(-10px) rotate(2deg);
+        }
+
+        .dumpling-img {
+            width: 100%;
+            max-width: 300px;
+            transition: transform 0.3s;
+        }
+
+        .dumpling-img:hover {
+            transform: rotate(15deg);
+        }
+
+        /* Секция фактов */
+        .facts {
+            background: #fff8e1;
+            padding: 40px;
+            margin: 30px 0;
+            border-radius: 20px;
+        }
+
+        /* Анимация появления */
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .animated {
+            animation: slideIn 1s ease-out;
+        }
+
+        /* Кнопка */
+        .btn {
+            background: #ff7043;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 10px;
+            }
+            
+            .dumpling-card {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>🍥 Добро пожаловать в Мир Пельменей! 🍥</h1>
+        <img src="domash-01.png" class="dumpling" style="left: 10%; top: 20px">
+        <img src="domash-01.png" class="dumpling" style="left: 30%; top: 40px">
+        <img src="domash-01.png" class="dumpling" style="left: 70%; top: 10px">
+		<img src="domash-01.png" class="dumpling" style="left: 50%; top: 20px">
+        <img src="domash-01.png" class="dumpling" style="left: 60%; top: 40px">
+        <img src="domash-01.png" class="dumpling" style="left: 80%; top: 10px">
+    </header>
+
+    <div class="main-content">
+        <div class="dumpling-card animated">
+            <h2>🍴 Лучшие пельмени дня!</h2>
+            <img src="pelmen.jpg" 
+                 alt="Пельмени" 
+                 class="dumpling-img">
+            <p>Попробуйте наши новые вкусы:</p>
+            <ul>
+                <li>Классические с мясом 🥩</li>
+                <li>Сырные с грибами 🧀</li>
+                <li>Десертные с вишней 🍒</li>
+            </ul>
+        </div>
+
+        <div class="facts animated">
+            <h2>😋 Интересные факты:</h2>
+            <p>✅ Первые пельмени появились более 2000 лет назад!</p>
+            <p>✅ В мире существует более 500 видов пельменей</p>
+            <p>✅ Самый большой пельмень весил 1.5 кг 🎉</p>
+        </div>
+
+        <div class="dumpling-card animated">
+            <h2>👩🍳 Рецепт дня</h2>
+            <img src="https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" 
+                 alt="Лепка пельменей" 
+                 class="dumpling-img">
+            <p>Секреты идеального теста:</p>
+            <ol>
+                <li>Мука + вода + яйцо</li>
+                <li>Вымешивать 15 минут</li>
+                <li>Дать отдохнуть 30 мин</li>
+            </ol>
+        </div>
+
+        <center>
+            <button class="btn" onclick="startDance()">Устроить пельменную вечеринку! 🎉</button>
+        </center>
+    </div>
+
+    <script>
+        function startDance() {
+            const dumplings = document.querySelectorAll('.dumpling');
+            dumplings.forEach(d => {
+                d.style.animation = 'float 0.5s infinite';
+                setTimeout(() => {
+                    d.style.animation = 'float 4s infinite ease-in-out';
+                }, 3000);
+            });
+        }
+    </script>
+</body>
+</html>
