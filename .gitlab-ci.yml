@@ -18,7 +18,7 @@ build:
     - web-app
   only:
     - main
-    - tags
+    - tags  
   script:
     - echo "Building Docker image..."
     - echo "$VERSION"
@@ -37,7 +37,6 @@ deploy:
     - web-app
   only:
     - main
-    - tags
   before_script:
     - mkdir -p /tmp/.kube # Создание директории для kubeconfig
     - echo "$KUBE_CONFIG" > /tmp/.kube/config # Установка kubeconfig
@@ -51,4 +50,3 @@ deploy:
     - kubectl rollout restart deployment/${DEPLOYMENT_NAME} --namespace=${NAMESPACE}
     - kubectl rollout status deployment/${DEPLOYMENT_NAME} --namespace=${NAMESPACE}
   when: on_success
-
